@@ -3,7 +3,7 @@ from django.shortcuts import render,get_object_or_404
 from blog.models import Post,Category
 # Create your views here.
 
-#index view
+
 def index_view(request):
     xeberler = Post.objects.filter(draft=True)
     news_count = Post.objects.all().count()
