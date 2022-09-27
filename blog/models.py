@@ -29,6 +29,7 @@ class Post(models.Model):
     class Meta:
         verbose_name = "Xeber"
         verbose_name_plural = "Xeberler"
+        ordering=["-id"]
 
     
     
