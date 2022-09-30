@@ -4,6 +4,7 @@ from blog.models import Post,Category
 # Create your views here.
 
 
+
 def index_view(request):
     xeberler = Post.objects.filter(draft=True)
     news_count = Post.objects.all().count()
@@ -27,3 +28,18 @@ def detail_news(request,slug):
     context['xeber']=xeber
 
     return render(request,"detail.html",context)
+
+def sub_view(request):
+    
+    return render(request,"sub.html")
+
+
+
+
+def category_detail(request,slug):
+    context ={}
+
+    category = get_object_or_404(Category,slug=slug)
+    context['category']=category
+
+    return render(request,"category_detail.html",context)

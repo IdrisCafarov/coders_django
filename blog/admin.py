@@ -8,4 +8,5 @@ class AdminPost(admin.ModelAdmin):
     list_display = ['title','created_date','updated_date']
 
 admin.site.register(Category)
+admin.site.register(SubCategory)
 

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for sub in category.category_sub.all %}
+    <div style="display: flex;">
+        <h1>{{sub.title}} :</h1>
+        {% for products in sub.post_category.all %}
+            <h1>{{products.title}}</h1>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</body>
+</html>
