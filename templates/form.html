@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Test Form Page</title>
+    </head>
+    <body>
+
+        <h1>Create Post Form</h1>
+        <form method="POST" action="/test-form/" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            
+                {% comment %} <label>{{form.title.label}}</label>
+                    {{form.title}}
+                <br>
+                <label>{{form.content.label}}</label>
+                    {{form.content}} {% endcomment %}
+            <input type="submit" name="Submit">
+        </form>
+        
+    </body>
+</html>

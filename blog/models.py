@@ -1,7 +1,9 @@
 from enum import unique
+from wsgiref.validate import validator
 from django.db import models
 from blog.helper import seo
 from django.urls import reverse
+from .validators import validate_title
 
 # Create your models here.
 
@@ -41,7 +43,7 @@ class SubCategory(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=50,verbose_name="Basliq")
+    title = models.CharField(max_length=50,verbose_name="Basliq", validators=[validate_title])
     content = models.TextField(verbose_name="Xeber")
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
@@ -57,6 +59,9 @@ class Post(models.Model):
         verbose_name = "Xeber"
         verbose_name_plural = "Xeberler"
         ordering=["-id"]
-
+    
+    def save(self, *args, **kwargs):
+        self.title = self.title.upper()
+        super(Post, self).save(*args, **kwargs)
     
     

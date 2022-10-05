@@ -8,5 +8,6 @@ urlpatterns = [
     path('',index_view,name="index"),
     path('xeber/<slug>/',detail_news,name="detail_news"),
     path('sub',sub_view,name="sub"),
-    path('category_detail/<slug>/',category_detail,name="category_detail")
+    path('category_detail/<slug>/',category_detail,name="category_detail"),
+    path("test-form/", post_form_view, name='test-form'),
 ]

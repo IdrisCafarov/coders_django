@@ -43,3 +43,28 @@ def category_detail(request,slug):
     context['category']=category
 
     return render(request,"category_detail.html",context)
+
+
+from .forms import PostForm
+
+def post_form_view(request):
+    print("data")
+    print(request.method)
+    form = PostForm()
+
+    if request.method == "POST":
+        print(request.POST)
+        print(request.FILES)
+
+
+        form = PostForm(request.POST)
+        if form.is_valid():
+            instance = form.save()
+            print(instance)
+        else:
+            print(form.errors)
+
+    context = {
+        "form": form
+    }
+    return render(request, "form.html", context)
